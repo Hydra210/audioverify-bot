@@ -128,7 +128,7 @@ def flask_health():
     return "OK", 200
 
 def run_flask():
-    flask_app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)), use_reloader=False)
+    flask_app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), use_reloader=False)
 
 def keep_alive():
     Thread(target=run_flask, daemon=True).start()

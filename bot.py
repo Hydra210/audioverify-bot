@@ -1177,6 +1177,16 @@ async def on_ready():
 #                           ENTRY
 # ============================================================
 
+import random
+
 keep_alive()
-time.sleep(5)
-bot.run(TOKEN)
+
+for attempt in range(10):
+    try:
+        time.sleep(5 + attempt * 10 + random.uniform(0, 5))
+        bot.run(TOKEN)
+        break
+    except Exception as e:
+        log(f"[login] attempt {attempt+1} failed: {e}")
+        if attempt == 9:
+            raise

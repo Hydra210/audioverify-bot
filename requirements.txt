@@ -1,3 +1,6 @@
 discord.py>=2.0.0
 flask
 aiohttp
+aiohttp
+discord.py
+flask

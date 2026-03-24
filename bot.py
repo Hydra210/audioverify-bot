@@ -12,7 +12,8 @@ from pathlib import Path
 #                          CONFIG
 # ============================================================
 
-TOKEN       = os.getenv("DISCORD_TOKEN")
+TOKEN = os.getenv("DISCORD_TOKEN")
+print(f"TOKEN LOADED: {repr(TOKEN)}")
 CONFIG_FILE = Path("bot_config.json")
 LOG_BUFFER  = deque(maxlen=500)
 ORANGE      = discord.Color.from_rgb(255, 136, 0)

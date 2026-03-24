@@ -13,7 +13,7 @@ from pathlib import Path
 # ============================================================
 
 TOKEN       = os.getenv("DISCORD_TOKEN")
-OWNER_ID    = int(os.getenv("OWNER_ID", "0"))
+OWNER_ID    = int(os.getenv("OWNER_ID", "728856632288608336"))
 CONFIG_FILE = Path("bot_config.json")
 LOG_BUFFER  = deque(maxlen=500)
 ORANGE      = discord.Color.from_rgb(255, 136, 0)

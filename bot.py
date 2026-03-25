@@ -1412,19 +1412,25 @@ async def cmd_setupperms(interaction: discord.Interaction):
 #                           READY
 # ============================================================
 
+_commands_synced = False
+
 @bot.event
 async def on_ready():
+    global _commands_synced
     log(f"logged in as {bot.user}")
-    try:
-        synced = await bot.tree.sync()
-        log(f"synced {len(synced)} slash commands globally")
-    except Exception as e:
-        log(f"sync failed: {e}")
+    if not _commands_synced:
+        try:
+            synced = await bot.tree.sync()
+            log(f"synced {len(synced)} slash commands globally")
+            _commands_synced = True
+        except Exception as e:
+            log(f"sync failed: {e}")
+    else:
+        log("reconnected to gateway — skipping command sync")
 
 # ============================================================
 #                           ENTRY
 # ============================================================
 
 keep_alive()
-time.sleep(5)
 bot.run(TOKEN)
